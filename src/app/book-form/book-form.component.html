@@ -1,0 +1,23 @@
+<p>book-form works!</p>
+<div class="container">
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <input class="form-control" formControlName="title" placeholder="Title">
+                <small class="text-danger" *ngIf="bookForm.get('title')?.invalid && bookForm.get('title')?.touched">
+                    Title is required.
+                </small>
+            </div>
+            <div class="col-md-4">
+                <input class="form-control" formControlName="author" placeholder="Author">
+                <small class="text-danger" *ngIf="bookForm.get('author')?.invalid && bookForm.get('author')?.touched">
+                    Author is required.
+                </small>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary w-100" type="submit" [disabled]="bookForm.invalid">Add</button>
+            </div>
+        </div>
+    </form>
+</div>

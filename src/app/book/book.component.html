@@ -1,0 +1,25 @@
+<p>book-component works!</p>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <input class="form-control" [(ngModel)]="newBookTitle" placeholder="Title">
+        </div>
+        <div class="col-md-4">
+            <input class="form-control" [(ngModel)]="newBookAuthor" placeholder="Author">
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary w-100" (click)="addBook()">Add</button>
+        </div>
+    </div>
+
+    <h2 class="text-center mt-5">Books list</h2>
+
+    <ul class="list-group mt-3">
+        <li class="list-group-item d-flex justify-content-between align-items-center"
+            *ngFor="let book of books; index as i">
+            {{book.title}} {{book.date | date:'dd.MM.yyyy'}}
+            by {{book.author}}
+            <button class="btn btn-danger" (click)="deleteBook(i)">Delete</button>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,30 @@
+<p>home works!</p>
+<div class="container">
+    <h1> Form Event </h1>
+    <form (submit)="onSubmit($event)">
+        <input type="text" name="customerName" placeholder="Type here..." />
+    </form>
+
+    <p>&nbsp;</p>
+
+    <h1> Computed Signal </h1>
+    <label>{{totalPrice()}}</label>
+    <input (change)="changeQuantity($event)" type="number" value="{{quantity()}}" />
+
+    <p>&nbsp;</p>
+
+    <h1> Signal : </h1>
+    <label>{{label}}</label>
+    <button (click)="toggleMode()">Change Theme</button>
+    
+    <p>&nbsp;</p>
+
+    <h1> Book List from Http : </h1>
+    <ul class="list-group mt-3">
+        <li class="list-group-item d-flex justify-content-between align-items-center"
+            *ngFor="let book of books; index as i">
+            {{book.title}} {{book.date | date:'dd.MM.yyyy'}}
+            by {{book.author}}
+        </li>
+    </ul>
+</div>

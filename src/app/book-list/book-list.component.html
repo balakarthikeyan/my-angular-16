@@ -1,0 +1,28 @@
+<p>book-list works!</p>
+<div class="container">
+    <table class="table table-striped" *ngIf="books.length; else noBook">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Date.</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books">
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.date | date:'dd.MM.yyyy'}}</td>
+                <td>
+                    <button class="btn btn-sm btn-danger mx-1" (click)="deleteBook(book.id)">Delete</button>
+                    <button class="btn btn-sm btn-secondary mx-1" [routerLink]="['/edit', book.id]">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #noBook>
+    <p>No books available.</p>
+</ng-template>
